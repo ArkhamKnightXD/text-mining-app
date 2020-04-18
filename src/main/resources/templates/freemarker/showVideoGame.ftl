@@ -16,9 +16,10 @@
 
     <style>
         body {
-            background-image: url("../../bootstrap-4.3.1/assets/img/bg4.jpg");
-            background-repeat: repeat-y;
+            background-image: url("../../bootstrap-4.3.1/assets/img/bg3.jpg");
+            background-repeat: no-repeat;
             background-attachment: scroll;
+
         }
     </style>
 
@@ -37,37 +38,36 @@
             <li class="nav-item">
                 <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="/consoles/admin">Consoles</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link " href="/videogames/admin">Videogames</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link " href="/admin">Admin</a>
             </li>
-
         </ul>
     </div>
 </nav>
 
-<h1 class="jumbotron text-center">${console.name}</h1>
+<h1 class="jumbotron text-center">${videogame.name}</h1>
 
 <main role="main" class="container">
 
-    <div class="cover-console">
+    <div class="cover-videogame">
 
         <figure class="figure">
-            <img src="../../bootstrap-4.3.1/assets/img/${console.image}" class="figure-img img-fluid rounded" alt="cover" width="500px" height="350px" >
+            <img src="../../bootstrap-4.3.1/assets/img/${videogame.image}" class="figure-img img-fluid rounded" alt="cover" width="500px" height="350px" >
         </figure>
 
     </div>
 
-    <div class="card-console-developer bg-dark text-white" style="width: 350px; height: 505px;" >
-        <img src="../../bootstrap-4.3.1/assets/img/${console.developer}.jpg" class="card-img-top" alt="developer" width="300px" height="250px">
+    <div class="card-videogame-developer bg-dark text-white" style="width: 350px; height: 505px;" >
+        <img src="../../bootstrap-4.3.1/assets/img/${videogame.developer}.jpg" class="card-img-top" alt="developer" width="300px" height="250px">
         <div class="card-body">
-            <h3 class="card-title">${console.developer}</h3>
-            <p class="card-text">${console.developer} launched ${console.name} in ${console.releasedDate?date}, its a ${console.generation}th generation console and solds worldwide the quantity of: ${console.unitsSold}, its lifespan was of ${console.lifespan} years.</p>
+            <h3 class="card-title">${videogame.developer}</h3>
+            <p class="card-text">${videogame.developer} launched ${videogame.name} in ${videogame.releasedDate?date}, the genre of this game is ${videogame.genre}, also has a rating of ${videogame.rating} according to the metacritics page.</p>
             <a href="https://en.wikipedia.org/wiki/Bandai_Namco_Entertainment" class="btn btn-primary">Learn more</a>
         </div>
     </div>

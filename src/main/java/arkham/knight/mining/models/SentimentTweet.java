@@ -21,6 +21,12 @@ public class SentimentTweet implements Serializable {
     public SentimentTweet() {
     }
 
+    public SentimentTweet(String text,String hashtags) {
+
+        this.text = text;
+        this.hashtags = hashtags;
+    }
+
 
     public Long getId() {
         return id;

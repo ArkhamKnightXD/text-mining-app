@@ -41,7 +41,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/consoles/admin">
                             <span data-feather="layers"></span>
-                            Consoles
+                            Tweets by Sentiment Label
                         </a>
                     </li>
                     <li class="nav-item">
@@ -101,11 +101,10 @@
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                <h1 class="h2">Sales total by client</h1>
+                <h1 class="h2">List of tweets</h1>
                 <div class="btn-toolbar mb-2 mb-md-0">
                     <div class="btn-group mr-2">
-                        <a class="btn btn-outline-primary my-2 my-sm-0" href="/default" role="button">Create default consoles</a>
-                        <a class="btn btn-outline-success my-2 my-sm-0" href="/default2" role="button">Create default videoGames</a>
+                        <a class="btn btn-outline-primary my-2 my-sm-0" href="/creation" role="button">Add a new tweet</a>
                     </div>
                     <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
                         <span data-feather="calendar"></span>
@@ -116,25 +115,27 @@
 
             <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
 
-            <h2>Last sales</h2>
+            <h2>Last tweets</h2>
             <div class="table-responsive">
                 <table class="table table-striped table-sm">
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Buyer</th>
-                        <th>Sold Date</th>
-                        <th>Total</th>
+                        <th>text</th>
+                        <th>Hashtag</th>
+                        <th>Sentiment</th>
+                        <th>Sentiment Label</th>
 
                     </tr>
                     </thead>
-                    <#list sales as sale >
+                    <#list tweets as tweet>
                     <tbody>
                     <tr>
-                        <td>${sale.id}</td>
-                        <td>${sale.buyer.name}</td>
-                        <td>${sale.soldDate}</td>
-                        <td>${sale.total}</td>
+                        <td>${tweet.id}</td>
+                        <td>${tweet.text}</td>
+                        <td>${tweet.hashtags}</td>
+                        <td>${tweet.sentiment}</td>
+                        <td>${tweet.sentiment_label}</td>
                     </tr>
 
                     </tbody>
@@ -164,14 +165,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
 <script>
 
+
     var clientsNames = [];
     var totalSales = [];
 
-    <#list sales as sale>
+    <#list tweets as tweet>
 
-    clientsNames.push("${sale.buyer.name}");
+    clientsNames.push("${tweet.sentiment_label}");
 
-    totalSales.push(${sale.total})
+    totalSales.push(${tweet.sentiment})
 
     </#list>
 

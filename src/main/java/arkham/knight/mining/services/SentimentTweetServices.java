@@ -32,4 +32,18 @@ public class SentimentTweetServices {
 
         return sentimentTweetRepository.findAll();
     }
+
+
+    public void DeleteSentimentTweet(SentimentTweet sentimentTweetToDelete){
+
+        sentimentTweetRepository.delete(sentimentTweetToDelete);
+
+    }
+
+
+    public void DeleteAllSentimentTweet(){
+
+        sentimentTweetRepository.deleteAll();
+
+    }
 }

@@ -24,6 +24,8 @@ public class MiningApplication {
     CommandLineRunner runner(SentimentTweetServices sentimentTweetServices){
         return args -> {
 
+          //  sentimentTweetServices.DeleteAllSentimentTweet();
+
             /*ObjectMapper mapper = new ObjectMapper();
 
             TypeReference<List<SentimentTweet>> typeReference = new TypeReference<List<SentimentTweet>>(){};
